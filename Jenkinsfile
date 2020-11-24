@@ -4,10 +4,11 @@ pipeline{
 		stage('Clone Repo'){
 
 			steps{
-                    sh label: '', script: '''if [ ! -d "/chaperootodo_client/" ]; then
+                    sh label: '', script: '''if [ ! -d "chaperootodo_client" ]; then
         									git clone https://gitlab.com/qacdevops/chaperootodo_client.git
 											fi'''
-                    }
+					sh 'cd chaperootodo_client/'
+			}
 
 		}
 		stage('Install Docker and docker-compose'){
