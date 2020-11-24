@@ -7,7 +7,7 @@ pipeline{
                     sh label: '', script: '''if [ ! -d "chaperootodo_client" ]; then
         									git clone https://gitlab.com/qacdevops/chaperootodo_client.git
 											fi'''
-					sh 'cd chaperootodo_client/'
+					
 			}
 
 		}
@@ -21,6 +21,8 @@ pipeline{
 		}	
 		stage('Run App'){
 			steps{
+				sh 'cd chaperootodo_client/'
+				sh 'ls'
 				sh 'sudo docker-compose pull && sudo -E DB_PASSWORD=${DB_PASSWORD} docker-compose up -d'
 			}
 		}
