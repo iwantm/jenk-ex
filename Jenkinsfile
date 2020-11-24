@@ -18,8 +18,7 @@ pipeline{
 						curl https://get.docker.com | sudo bash
 					fi'''
 					sh label: '', script: ''' if [ ! docker-compose ]; then
-						sudo curl -L "https://github.com/docker/compose/releases/download/1.27.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/l> 
-						sudo chmod +x /usr/local/bin/docker-compose
+						sudo curl -L "https://github.com/docker/compose/releases/download/1.27.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/l> && sudo chmod +x /usr/local/bin/docker-compose
 					fi'''	
 			}
 			
