@@ -2,9 +2,13 @@ pipeline{
 	agent any
 	stages{
 		stage('Clone Repo'){
+
 			steps{
-				sh label: '' , script ''' if[! -d "/chaperootodo_client"] git clone https://gitlab.com/qacdevops/chaperootodo_client.git fi'''
-			}
+                    sh label: '', script: '''if [! -d "/chaperootodo_client"]; then
+                        git clone https://gitlab.com/qacdevops/chaperootodo_client.git
+                    fi'''
+                    }
+
 		}
 		stage('Install Docker and docker-compose'){
 			steps{
